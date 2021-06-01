@@ -4,12 +4,10 @@
     "description": "learning_gql",
     "scripts": {
         "prettier": "npx prettier --write .",
-
         "microservice": "json-server -q db_used_for_mock_microservice.json",
         "simple_gql_server": "node simple_gql_server.js",
         "simple_gql_and_rest_server": "node simple_gql_and_rest_server.js",
         "simple_rest_server": "node simple_rest_server.js",
-
         "federated_graph": "concurrently -k npm:federated:*",
         "federated:microservice": "json-server -q db_used_for_mock_microservice.json",
         "federated:astronauts": "node ./apollo_federated_gql_interface/astronaut_subgraph_gql_server.js",
@@ -28,6 +26,7 @@
         "express": "^4.17.1",
         "graphql": "^15.5.0",
         "json-server": "^0.16.3",
+        "lodash": "^4.17.21",
         "prettier": "^2.3.0"
     }
 }

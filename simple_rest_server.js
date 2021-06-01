@@ -4,6 +4,7 @@ const express = require('express');
 const app = express();
 //--------------------
 const axios = require('axios');
+const _ = require('lodash');
 
 const formatDataForClient = (input) => input;
 
@@ -21,6 +22,11 @@ app.get('/test', (req, res) => res.send('test is good!'));
 app.get('/astronauts', async (request, response) => {
     // extract needed arguments
     const { id } = request.query;
+
+    // validate the input
+    if (_.isString(id) && !_.isInteger(Number(id))) {
+        return response.status(400).send('id is not an integer')
+    }
 
     let responseFromDataSource;
     if (id) {
